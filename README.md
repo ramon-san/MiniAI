@@ -1,0 +1,1 @@
+This repo contains the Xcode proyect of my final assignment for TDA. The program is a small neural net, I hope you like it! I think ! followed by the close of an echo denies the quotation mark—fun fact.
