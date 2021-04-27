@@ -6,9 +6,15 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "dataShell_view.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+
+    system("clear");
+    printf("Hello world!\n\n");
+    
+    dataShell_menu();
+    
     return 0;
 }
