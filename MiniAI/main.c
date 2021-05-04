@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     system("clear");
     printf("Hello world!\n\n");
     
-    dataShell_menu();
+    dataShell_view_menu();
     
     return 0;
 }

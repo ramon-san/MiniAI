@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		662FEB2C26322A1C0042CC63 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 662FEB2B26322A1C0042CC63 /* main.c */; };
+		66580729263488E600EF8816 /* dataShell_controller.c in Sources */ = {isa = PBXBuildFile; fileRef = 66580728263488E600EF8816 /* dataShell_controller.c */; };
+		6658072D2634899000EF8816 /* dataShell_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 6658072C2634899000EF8816 /* dataShell_view.c */; };
+		66D471C926348A0800E4CFE3 /* dataShell_motor.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D471C826348A0800E4CFE3 /* dataShell_motor.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		661208C2263B870F00B97F1B /* general.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = general.h; sourceTree = "<group>"; };
 		662FEB2826322A1C0042CC63 /* MiniAI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MiniAI; sourceTree = BUILT_PRODUCTS_DIR; };
 		662FEB2B26322A1C0042CC63 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		66580727263488E600EF8816 /* dataShell_controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_controller.h; sourceTree = "<group>"; };
+		66580728263488E600EF8816 /* dataShell_controller.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dataShell_controller.c; sourceTree = "<group>"; };
+		6658072B2634899000EF8816 /* dataShell_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_view.h; sourceTree = "<group>"; };
+		6658072C2634899000EF8816 /* dataShell_view.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dataShell_view.c; sourceTree = "<group>"; };
+		66D471C726348A0800E4CFE3 /* dataShell_motor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_motor.h; sourceTree = "<group>"; };
+		66D471C826348A0800E4CFE3 /* dataShell_motor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dataShell_motor.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,13 @@
 			isa = PBXGroup;
 			children = (
 				662FEB2B26322A1C0042CC63 /* main.c */,
+				66580727263488E600EF8816 /* dataShell_controller.h */,
+				66580728263488E600EF8816 /* dataShell_controller.c */,
+				6658072B2634899000EF8816 /* dataShell_view.h */,
+				6658072C2634899000EF8816 /* dataShell_view.c */,
+				66D471C726348A0800E4CFE3 /* dataShell_motor.h */,
+				66D471C826348A0800E4CFE3 /* dataShell_motor.c */,
+				661208C2263B870F00B97F1B /* general.h */,
 			);
 			path = MiniAI;
 			sourceTree = "<group>";
@@ -118,7 +135,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D471C926348A0800E4CFE3 /* dataShell_motor.c in Sources */,
+				66580729263488E600EF8816 /* dataShell_controller.c in Sources */,
 				662FEB2C26322A1C0042CC63 /* main.c in Sources */,
+				6658072D2634899000EF8816 /* dataShell_view.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

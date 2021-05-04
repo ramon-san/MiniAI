@@ -11,6 +11,30 @@
 
 /*
  *
+ * The function openFile opens the file the user entered and returns it's FILE*.
+ *
+ * @params
+ *      fileName (string):
+            This is the name of the file we're going to use.
+
+ * @returns
+        fp (FILE*)
+            This is the file pointer of the file we just opened.
+*/
+FILE *dataShell_controller_openFile(char *fileName){
+   FILE *fp;
+
+   fp = fopen(fileName, "r");
+   if(fp == NULL){
+      printf("\n\tArchivo no disponible.");
+      exit(1);
+   }
+
+return(fp);
+}
+
+/*
+ *
  * The function verifyX verifies that the file's format is consistant in it's number of columns.
  *
  * @params
@@ -25,7 +49,7 @@
         fpConvert (FILE*)
             This is the file pointer of the new file we created.
 */
-int dataShell_verifyX(int i, int xTemp, int xCurrent){
+int dataShell_controller_verifyX(int i, int xTemp, int xCurrent){
 
    if(i==0) xCurrent = xTemp;
    if(xCurrent != xTemp){
@@ -34,4 +58,13 @@ int dataShell_verifyX(int i, int xTemp, int xCurrent){
    }
 
 return(xCurrent);
+}
+
+
+floatMatrix dataShell_controller_passBrowser(FILE *fp){
+    floatMatrix browser;
+    
+    browser = dataShell_motor_readCSV(fp);
+    
+    return(browser);
 }

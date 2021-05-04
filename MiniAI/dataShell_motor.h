@@ -8,30 +8,11 @@
 #ifndef dataShell_motor_h
 #define dataShell_motor_h
 
-
-typedef struct browser{
-   int x, y;
-   size_t used;
-   float *matrix;
-}browserFloatMatrix;
+#include "general.h"
 
 /* Function prototypes. */
 
-FILE *dataShell_openFile(char *fileName);
-/*
- *
- * The function openFile opens the file the user entered and returns it's FILE*.
- *
- * @params
- *      fileName (string):
-            This is the name of the file we're going to use.
-
- * @returns
-        fp (FILE*)
-            This is the file pointer of the file we just opened.
-*/
-
-browserFloatMatrix dataShell_readCSV(FILE *fp);
+floatMatrix dataShell_motor_readCSV(FILE *fp);
 /*
  *
  * The function readCSV reads the .csv file the user entered and converts it to a .txt, it returns the FILE* of the created file.
@@ -45,7 +26,7 @@ browserFloatMatrix dataShell_readCSV(FILE *fp);
             This is the file pointer of the new file we created.
 */
 
-void dataShell_appendToMatrix(char *number, browserFloatMatrix browser, int xCurrent);
+void dataShell_motor_appendToMatrix(char *number, floatMatrix browser, int xCurrent);
 /*
  *
  * The function appendToMatrix sends the information we read from the file to a matrix.
@@ -62,17 +43,22 @@ void dataShell_appendToMatrix(char *number, browserFloatMatrix browser, int xCur
         void
 */
 
-void dataShell_printMatrix(browserFloatMatrix browser);
+int dataShell_motor_verifyX(int i, int xTemp, int xCurrent);
 /*
  *
- * The function printMatrix prints the content of our matrix.
+ * The function verifyX verifies that the file's format is consistant in it's number of columns.
  *
  * @params
-        browser (browserFloatMatrix):
-            This is the browser with our array's information.
+ *      i (int):
+            This is the iteration we're in right now.
+        xTemp (int):
+            This is the number of columns in the current iteration
+        xCurrent (int):
+            When i=0 it takes the value of xTemp from that iteration an compares that number on the following iterations, it's the variable browser.x.
 
  * @returns
-        void
+        fpConvert (FILE*)
+            This is the file pointer of the new file we created.
 */
 
 #endif /* dataShell_motor_h */

@@ -8,32 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "dataShell_controller.h"
 #include "dataShell_motor.h"
-
-/*
- *
- * The function openFile opens the file the user entered and returns it's FILE*.
- *
- * @params
- *      fileName (string):
-            This is the name of the file we're going to use.
-
- * @returns
-        fp (FILE*)
-            This is the file pointer of the file we just opened.
-*/
-FILE *dataShell_openFile(char *fileName){
-   FILE *fp;
-
-   fp = fopen(fileName, "r");
-   if(fp == NULL){
-      printf("\n\tArchivo no disponible.");
-      exit(1);
-   }
-
-return(fp);
-}
 
 /*
  *
@@ -47,8 +22,8 @@ return(fp);
         fpConvert (FILE*)
             This is the file pointer of the new file we created.
 */
-browserFloatMatrix dataShell_readCSV(FILE *fp){
-    browserFloatMatrix browser;
+floatMatrix dataShell_motor_readCSV(FILE *fp){
+    floatMatrix browser;
     char line[25], *temp;
     int xTemp;
 
@@ -56,21 +31,20 @@ browserFloatMatrix dataShell_readCSV(FILE *fp){
     browser.used = 0;
     browser.y = 0;
     while(fgets(line, 25, fp) != NULL){
-       if(browser.used == sizeof(float)*BUFSIZ) browser.matrix = realloc(browser.matrix, sizeof(int)*BUFSIZ/2);
-       xTemp=0;
-       temp = strtok(line, ",");
-       while(temp != NULL){
-           dataShell_appendToMatrix(temp, browser, xTemp);
-          temp = strtok(NULL, ",");
-          xTemp++;
-       }
-       browser.x = dataShell_verifyX(browser.y, xTemp, browser.x);
-       browser.y++;
+//        if(browser.used == sizeof(float)*BUFSIZ) browser.matrix = realloc(browser.matrix, sizeof(float)*BUFSIZ/2);
+        xTemp=0;
+        temp = strtok(line, ",");
+        while(temp != NULL){
+            dataShell_motor_appendToMatrix(temp, browser, xTemp);
+            temp = strtok(NULL, ",");
+            xTemp++;
+        }
+        browser.x = dataShell_motor_verifyX(browser.y, xTemp, browser.x);
+        browser.y++;
     }
-
     fclose(fp);
-
-return(browser);
+    
+    return(browser);
 }
 
 /*
@@ -88,7 +62,7 @@ return(browser);
  * @returns
         void
 */
-void dataShell_appendToMatrix(char *number, browserFloatMatrix browser, int xCurrent){
+void dataShell_motor_appendToMatrix(char *number, floatMatrix browser, int xCurrent){
 
     if(browser.y == 0) browser.matrix[xCurrent] = strtof(number, NULL);
     else browser.matrix[((browser.y*browser.x)+xCurrent)] = strtof(number, NULL);
@@ -98,24 +72,27 @@ void dataShell_appendToMatrix(char *number, browserFloatMatrix browser, int xCur
 
 /*
  *
- * The function printMatrix prints the content of our matrix.
+ * The function verifyX verifies that the file's format is consistant in it's number of columns.
  *
  * @params
-        browser (browserFloatMatrix):
-            This is the browser with our array's information.
+ *      i (int):
+            This is the iteration we're in right now.
+        xTemp (int):
+            This is the number of columns in the current iteration
+        xCurrent (int):
+            When i=0 it takes the value of xTemp from that iteration an compares that number on the following iterations, it's the variable browser.x.
 
  * @returns
-        void
+        fpConvert (FILE*)
+            This is the file pointer of the new file we created.
 */
-void dataShell_printMatrix(browserFloatMatrix browser){
-   int i;
+int dataShell_motor_verifyX(int i, int xTemp, int xCurrent){
 
-    system("clear");
-    printf("\n     x: %d, y: %d, used: %zu [bytes]\n\n", browser.x, browser.y, browser.used);
-    for(i=0; i<browser.y*browser.x; i++){
-        printf("     ID: %f\t value: %f\n", browser.matrix[i], browser.matrix[i+1]);
-        i++;
-    }
+   if(i==0) xCurrent = xTemp;
+   if(xCurrent != xTemp){
+      printf("\n\n\tInconsistent file, columns are not consistent.\n");
+      exit(1);
+   }
 
-return;
+return(xCurrent);
 }
