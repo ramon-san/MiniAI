@@ -10,11 +10,10 @@
 #include "dataShell_view.h"
 
 int main(int argc, const char * argv[]) {
-
-    system("clear");
-    printf("Hello world!\n\n");
+    floatMatrix browser;
     
-    dataShell_view_menu();
+    system("clear");
+    browser = dataShell_view_menu();
     
     return 0;
 }

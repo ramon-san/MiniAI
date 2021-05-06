@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "dataShell_view.h"
 
 /*
@@ -17,8 +18,9 @@
  * @returns
         void
 */
-void dataShell_view_menu(void){
+floatMatrix dataShell_view_menu(void){
     char file[25];
+    char option;
     FILE *fp;
     floatMatrix browser = {0, 0, 0, NULL};
     
@@ -27,9 +29,14 @@ void dataShell_view_menu(void){
     scanf("%s", file);
     fp = dataShell_controller_openFile(file);
     browser = dataShell_controller_passBrowser(fp);
-    dataShell_view_printMatrix(browser);
+    getchar();
+    printf("\n\tIf you want to print the file enter 'P', write anything else to skip this: ");
+    scanf("%c", &option);
+    if(option == 'p' || option == 'P'){
+        dataShell_view_printMatrix(browser);
+    }
     
-    return;
+    return(browser);
 }
 
 /*
@@ -44,13 +51,19 @@ void dataShell_view_menu(void){
         void
 */
 void dataShell_view_printMatrix(floatMatrix browser){
-    int i;
-
+    size_t i, j;
+    char temp[4];
+    
     system("clear");
     printf("\n     x: %d, y: %d, used: %zu [bytes]\n\n", browser.x, browser.y, browser.used);
-    for(i=0; i<browser.y*browser.x; i++){
-        printf("     ID: %f\t value: %f\n", browser.matrix[i], browser.matrix[i+1]);
-        i++;
+    for(i=0; i<browser.y; i++){
+        sprintf(temp, "%zu", i);
+        printf("     %f;\t", browser.matrix[i*browser.x]);
+        for(j=1; j<(browser.x); j++){
+            sprintf(temp, "%zu", j);
+            printf("x%s: %f\t", temp, browser.matrix[(i*browser.x)+j]);
+        }
+        printf("\n");
     }
 
     return;

@@ -13,7 +13,7 @@
 
 /* Function prototypes. */
 
-void dataShell_view_menu(void);
+floatMatrix dataShell_view_menu(void);
 /*
  *
  * The function menu gives the user action posibilities.
