@@ -29,6 +29,7 @@ floatMatrix dataShell_view_menu(void){
     scanf("%s", file);
     fp = dataShell_controller_openFile(file);
     browser = dataShell_controller_passBrowser(fp);
+
     getchar();
     printf("\n\tIf you want to print the file enter 'P', write anything else to skip this: ");
     scanf("%c", &option);
@@ -44,7 +45,7 @@ floatMatrix dataShell_view_menu(void){
  * The function printMatrix prints the content of our matrix.
  *
  * @params
-        browser (browserFloatMatrix):
+        browser (floatMatrix):
             This is the browser with our array's information.
 
  * @returns
@@ -66,5 +67,26 @@ void dataShell_view_printMatrix(floatMatrix browser){
         printf("\n");
     }
 
-    return;
+}
+
+/*
+ *
+ * The function getInfo separates data and targets.
+ *
+ * @params
+        my_perceptron (*perceptron):
+            This is the browser with our perceptron's information.
+        browser (floatMatrix):
+            This is the browser with our array's information.
+
+ * @returns
+        void
+*/
+void dataShell_view_getInfo(perceptron *my_perceptron, floatMatrix *browser){
+    
+    my_perceptron->targets = malloc(sizeof(float)*browser->y);
+    my_perceptron->data = malloc(sizeof(float)*(browser->y)*(browser->x - 2));
+    
+    dataShell_controller_storeInfo(&browser, &my_perceptron);
+    
 }

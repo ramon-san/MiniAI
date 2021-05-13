@@ -48,15 +48,31 @@ int dataShell_controller_verifyX(int i, int xTemp, int xCurrent);
 floatMatrix dataShell_controller_passBrowser(FILE *fp);
 /*
  *
- * The function passBrowser passes our filled browser variable to our view.
+ * The function passBrowser links our view with our motor.
  *
  * @params
- *      fp (FILE*):
-            This is the file pointer of the file we're reading.
+ *      fp (*FILE):
+            This is the location of the file we're using.
 
  * @returns
-        fpConvert (FILE*)
-            This is the file pointer of the new file we created.
+        browser (floatMatrix):
+            This is the browser the info of our matrix.
+*/
+
+void dataShell_controller_storeInfo(floatMatrix **browser, perceptron **my_perceptron);
+/*
+ *
+ * The function storeInfo saves targets and data in separate arrays.
+ *
+ * @params
+ *      browser (**floatMatrix):
+            This is the browser the info of our matrix.
+        my_perceptron (**perceptron):
+            This is the browser with our perceptron's information.
+
+ * @returns
+        browser (floatMatrix):
+            This is the browser with our array's information.
 */
 
 #endif /* dataShell_controller_h */

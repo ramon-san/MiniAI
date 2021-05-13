@@ -60,11 +60,56 @@ int dataShell_controller_verifyX(int i, int xTemp, int xCurrent){
 return(xCurrent);
 }
 
+/*
+ *
+ * The function passBrowser links our view with our motor.
+ *
+ * @params
+ *      fp (*FILE):
+            This is the location of the file we're using.
 
+ * @returns
+        browser (floatMatrix):
+            This is the browser the info of our matrix.
+*/
 floatMatrix dataShell_controller_passBrowser(FILE *fp){
     floatMatrix browser;
     
     browser = dataShell_motor_readCSV(fp);
     
     return(browser);
+}
+
+/*
+ *
+ * The function storeInfo saves targets and data in separate arrays.
+ *
+ * @params
+ *      browser (**floatMatrix):
+            This is the browser the info of our matrix.
+        my_perceptron (**perceptron):
+            This is the browser with our perceptron's information.
+
+ * @returns
+        browser (floatMatrix):
+            This is the browser with our array's information.
+*/
+void dataShell_controller_storeInfo(floatMatrix **browser, perceptron **my_perceptron){
+    size_t i, j;
+    int features = (*browser)->x;
+    int params = (*browser)->y;
+    
+    for(i = 1; i<(params+1); i++){
+        (*my_perceptron)->targets[i-1] = (*browser)->matrix[i*((*browser)->x)-1];
+        for(j = 0; j<(features-1); j++){
+            if(j == 0);
+            else{
+                if(i == 1) (*my_perceptron)->data[(j-1)] = (*browser)->matrix[j];
+                else{
+                    if(j == 1) (*my_perceptron)->data[(i-1)*(features-2)] = (*browser)->matrix[j+(i-1)*features];
+                    else (*my_perceptron)->data[(features-2)*(i-1)+j-1] = (*browser)->matrix[j+(i-1)*features];
+                }
+            }
+        }
+    }
 }

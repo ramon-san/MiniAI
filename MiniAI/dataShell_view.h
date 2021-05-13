@@ -37,4 +37,19 @@ void dataShell_view_printMatrix(floatMatrix browser);
         void
 */
 
+void dataShell_view_getInfo(perceptron *my_perceptron, floatMatrix *browser);
+/*
+ *
+ * The function getInfo separates data and targets.
+ *
+ * @params
+        my_perceptron (*perceptron):
+            This is the browser with our perceptron's information.
+        browser (floatMatrix):
+            This is the browser with our array's information.
+
+ * @returns
+        void
+*/
+
 #endif /* dataShell_view_h */

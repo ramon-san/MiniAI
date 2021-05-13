@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8F7C05C3-9846-4032-9A0F-E2E4EE80E249"
+            uuid = "9A105EC7-39B1-4C45-86B7-F73EA6DFBCC9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiniAI/dataShell_motor.c"
+            filePath = "MiniAI/dataShell_controller.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "dataShell_motor_readCSV(fp)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "dataShell_controller_storeInfo(browser, my_perceptron)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C32A5B27-8A8A-48D8-A251-C2EE3B0A711B"
-            shouldBeEnabled = "No"
+            uuid = "398447E1-EC3E-4B64-83C7-B4BCB8B154ED"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiniAI/dataShell_motor.c"
+            filePath = "MiniAI/dataShell_controller.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "dataShell_motor_readCSV(fp)"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "dataShell_controller_storeInfo(browser, my_perceptron)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

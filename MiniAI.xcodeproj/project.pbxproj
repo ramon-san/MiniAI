@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		662FEB2C26322A1C0042CC63 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 662FEB2B26322A1C0042CC63 /* main.c */; };
+		664EEDE3264C4D7300E41A5E /* perceptron.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDE2264C4D7300E41A5E /* perceptron.c */; };
 		66580729263488E600EF8816 /* dataShell_controller.c in Sources */ = {isa = PBXBuildFile; fileRef = 66580728263488E600EF8816 /* dataShell_controller.c */; };
 		6658072D2634899000EF8816 /* dataShell_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 6658072C2634899000EF8816 /* dataShell_view.c */; };
 		66D471C926348A0800E4CFE3 /* dataShell_motor.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D471C826348A0800E4CFE3 /* dataShell_motor.c */; };
@@ -29,6 +30,8 @@
 		661208C2263B870F00B97F1B /* general.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = general.h; sourceTree = "<group>"; };
 		662FEB2826322A1C0042CC63 /* MiniAI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MiniAI; sourceTree = BUILT_PRODUCTS_DIR; };
 		662FEB2B26322A1C0042CC63 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		664EEDE1264C4D7300E41A5E /* perceptron.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perceptron.h; sourceTree = "<group>"; };
+		664EEDE2264C4D7300E41A5E /* perceptron.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = perceptron.c; sourceTree = "<group>"; };
 		66580727263488E600EF8816 /* dataShell_controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_controller.h; sourceTree = "<group>"; };
 		66580728263488E600EF8816 /* dataShell_controller.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dataShell_controller.c; sourceTree = "<group>"; };
 		6658072B2634899000EF8816 /* dataShell_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_view.h; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				662FEB2B26322A1C0042CC63 /* main.c */,
+				664EEDE1264C4D7300E41A5E /* perceptron.h */,
+				664EEDE2264C4D7300E41A5E /* perceptron.c */,
 				66580727263488E600EF8816 /* dataShell_controller.h */,
 				66580728263488E600EF8816 /* dataShell_controller.c */,
 				6658072B2634899000EF8816 /* dataShell_view.h */,
@@ -139,6 +144,7 @@
 				66580729263488E600EF8816 /* dataShell_controller.c in Sources */,
 				662FEB2C26322A1C0042CC63 /* main.c in Sources */,
 				6658072D2634899000EF8816 /* dataShell_view.c in Sources */,
+				664EEDE3264C4D7300E41A5E /* perceptron.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
