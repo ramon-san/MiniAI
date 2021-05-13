@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		662FEB2C26322A1C0042CC63 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 662FEB2B26322A1C0042CC63 /* main.c */; };
-		664EEDE3264C4D7300E41A5E /* perceptron.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDE2264C4D7300E41A5E /* perceptron.c */; };
+		664EEDE5264CD03C00E41A5E /* general.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDE4264CD03C00E41A5E /* general.c */; };
+		664EEDE8264CD1CC00E41A5E /* perceptron_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDE7264CD1CC00E41A5E /* perceptron_view.c */; };
+		664EEDEB264CD4C500E41A5E /* perceptron_controller.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDEA264CD4C500E41A5E /* perceptron_controller.c */; };
+		664EEDEE264CE5C900E41A5E /* perceptron_motor.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDED264CE5C900E41A5E /* perceptron_motor.c */; };
+		664EEDF1264CE7E000E41A5E /* linearAlgebra.c in Sources */ = {isa = PBXBuildFile; fileRef = 664EEDF0264CE7E000E41A5E /* linearAlgebra.c */; };
 		66580729263488E600EF8816 /* dataShell_controller.c in Sources */ = {isa = PBXBuildFile; fileRef = 66580728263488E600EF8816 /* dataShell_controller.c */; };
 		6658072D2634899000EF8816 /* dataShell_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 6658072C2634899000EF8816 /* dataShell_view.c */; };
 		66D471C926348A0800E4CFE3 /* dataShell_motor.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D471C826348A0800E4CFE3 /* dataShell_motor.c */; };
@@ -30,8 +34,15 @@
 		661208C2263B870F00B97F1B /* general.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = general.h; sourceTree = "<group>"; };
 		662FEB2826322A1C0042CC63 /* MiniAI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MiniAI; sourceTree = BUILT_PRODUCTS_DIR; };
 		662FEB2B26322A1C0042CC63 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		664EEDE1264C4D7300E41A5E /* perceptron.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perceptron.h; sourceTree = "<group>"; };
-		664EEDE2264C4D7300E41A5E /* perceptron.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = perceptron.c; sourceTree = "<group>"; };
+		664EEDE4264CD03C00E41A5E /* general.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = general.c; sourceTree = "<group>"; };
+		664EEDE6264CD1CC00E41A5E /* perceptron_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perceptron_view.h; sourceTree = "<group>"; };
+		664EEDE7264CD1CC00E41A5E /* perceptron_view.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = perceptron_view.c; sourceTree = "<group>"; };
+		664EEDE9264CD4C500E41A5E /* perceptron_controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perceptron_controller.h; sourceTree = "<group>"; };
+		664EEDEA264CD4C500E41A5E /* perceptron_controller.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = perceptron_controller.c; sourceTree = "<group>"; };
+		664EEDEC264CE5C900E41A5E /* perceptron_motor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perceptron_motor.h; sourceTree = "<group>"; };
+		664EEDED264CE5C900E41A5E /* perceptron_motor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = perceptron_motor.c; sourceTree = "<group>"; };
+		664EEDEF264CE7E000E41A5E /* linearAlgebra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linearAlgebra.h; sourceTree = "<group>"; };
+		664EEDF0264CE7E000E41A5E /* linearAlgebra.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = linearAlgebra.c; sourceTree = "<group>"; };
 		66580727263488E600EF8816 /* dataShell_controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_controller.h; sourceTree = "<group>"; };
 		66580728263488E600EF8816 /* dataShell_controller.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dataShell_controller.c; sourceTree = "<group>"; };
 		6658072B2634899000EF8816 /* dataShell_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataShell_view.h; sourceTree = "<group>"; };
@@ -71,15 +82,22 @@
 			isa = PBXGroup;
 			children = (
 				662FEB2B26322A1C0042CC63 /* main.c */,
-				664EEDE1264C4D7300E41A5E /* perceptron.h */,
-				664EEDE2264C4D7300E41A5E /* perceptron.c */,
+				664EEDE4264CD03C00E41A5E /* general.c */,
+				661208C2263B870F00B97F1B /* general.h */,
 				66580727263488E600EF8816 /* dataShell_controller.h */,
 				66580728263488E600EF8816 /* dataShell_controller.c */,
 				6658072B2634899000EF8816 /* dataShell_view.h */,
 				6658072C2634899000EF8816 /* dataShell_view.c */,
 				66D471C726348A0800E4CFE3 /* dataShell_motor.h */,
 				66D471C826348A0800E4CFE3 /* dataShell_motor.c */,
-				661208C2263B870F00B97F1B /* general.h */,
+				664EEDE6264CD1CC00E41A5E /* perceptron_view.h */,
+				664EEDE7264CD1CC00E41A5E /* perceptron_view.c */,
+				664EEDE9264CD4C500E41A5E /* perceptron_controller.h */,
+				664EEDEA264CD4C500E41A5E /* perceptron_controller.c */,
+				664EEDEC264CE5C900E41A5E /* perceptron_motor.h */,
+				664EEDED264CE5C900E41A5E /* perceptron_motor.c */,
+				664EEDEF264CE7E000E41A5E /* linearAlgebra.h */,
+				664EEDF0264CE7E000E41A5E /* linearAlgebra.c */,
 			);
 			path = MiniAI;
 			sourceTree = "<group>";
@@ -140,11 +158,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664EEDE8264CD1CC00E41A5E /* perceptron_view.c in Sources */,
+				664EEDF1264CE7E000E41A5E /* linearAlgebra.c in Sources */,
 				66D471C926348A0800E4CFE3 /* dataShell_motor.c in Sources */,
 				66580729263488E600EF8816 /* dataShell_controller.c in Sources */,
 				662FEB2C26322A1C0042CC63 /* main.c in Sources */,
 				6658072D2634899000EF8816 /* dataShell_view.c in Sources */,
-				664EEDE3264C4D7300E41A5E /* perceptron.c in Sources */,
+				664EEDEE264CE5C900E41A5E /* perceptron_motor.c in Sources */,
+				664EEDEB264CD4C500E41A5E /* perceptron_controller.c in Sources */,
+				664EEDE5264CD03C00E41A5E /* general.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

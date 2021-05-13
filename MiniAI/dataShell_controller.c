@@ -96,18 +96,18 @@ floatMatrix dataShell_controller_passBrowser(FILE *fp){
 */
 void dataShell_controller_storeInfo(floatMatrix **browser, perceptron **my_perceptron){
     size_t i, j;
-    int features = (*browser)->x;
-    int params = (*browser)->y;
+    int x = (*browser)->x;
+    int y = (*browser)->y;
     
-    for(i = 1; i<(params+1); i++){
+    for(i = 1; i<(y+1); i++){
         (*my_perceptron)->targets[i-1] = (*browser)->matrix[i*((*browser)->x)-1];
-        for(j = 0; j<(features-1); j++){
+        for(j = 0; j<(x-1); j++){
             if(j == 0);
             else{
                 if(i == 1) (*my_perceptron)->data[(j-1)] = (*browser)->matrix[j];
                 else{
-                    if(j == 1) (*my_perceptron)->data[(i-1)*(features-2)] = (*browser)->matrix[j+(i-1)*features];
-                    else (*my_perceptron)->data[(features-2)*(i-1)+j-1] = (*browser)->matrix[j+(i-1)*features];
+                    if(j == 1) (*my_perceptron)->data[(i-1)*(x-2)] = (*browser)->matrix[j+(i-1)*x];
+                    else (*my_perceptron)->data[(x-2)*(i-1)+j-1] = (*browser)->matrix[j+(i-1)*x];
                 }
             }
         }
