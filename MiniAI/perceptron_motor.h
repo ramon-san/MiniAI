@@ -13,7 +13,7 @@
 
 /* Function prototypes. */
 
-float *perceptron_motor_predict(float *params, size_t batch_size, size_t n_params, float *features, int max, randomLocations **my_randoms);
+float *perceptron_motor_predict(float *params, size_t batch_size, size_t n_params, float *features, int max);
 /*
  *
  * The function predict runs the perceptron to get the dot product of every iteration of our batch size. This function was also copied from Cesarín's code.
@@ -54,7 +54,7 @@ void perceptron_motor_hebbian(size_t n_params, float *params, float *features, f
         void
 */
 
-float *perceptron_motor_fit(perceptron *my_perceptron, int max, randomLocations *my_results);
+float *perceptron_motor_fit(perceptron *my_perceptron, int max);
 /*
  *
  * The function fit trains our perceptron more. The concept was also copied from Cesarín's code.

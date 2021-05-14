@@ -27,24 +27,15 @@
         result (*float):
             This variable is an array with the result.
 */
-float *perceptron_motor_predict(float *params, size_t batch_size, size_t n_params, float *features, int max, randomLocations **my_randoms){
+float *perceptron_motor_predict(float *params, size_t batch_size, size_t n_params, float *features, int max){
     float *result = NULL;
-    size_t *predict_location = NULL;
     size_t observation;
-    passResult my_result;
     
     result = linearAlgebra_vector(batch_size);
-    predict_location = linearAlgebra_vector_size_t(batch_size);
-    if((*my_randoms)->predict_location == NULL) (*my_randoms)->predict_location = linearAlgebra_vector_size_t(batch_size);
     
     for(observation = 0; observation<batch_size; observation++){
-        my_result = linearAlgebra_dotProduct(features, params, n_params, observation, max);
-        result[observation] = my_result.result;
-        predict_location[observation] = my_result.predict_location;
+        result[observation] = linearAlgebra_dotProduct(features, params, n_params, observation, max);
     }
-    
-    (*my_randoms)->result = result;
-    (*my_randoms)->predict_location = predict_location;
     
     return(result);
 }
@@ -95,15 +86,15 @@ void perceptron_motor_hebbian(size_t n_params, float *params, float *features, f
         _error (*float):
             This are the new error values.
 */
-float *perceptron_motor_fit(perceptron *my_perceptron, int max, randomLocations *my_results){
+float *perceptron_motor_fit(perceptron *my_perceptron, int max){
     float *error = NULL, *result = NULL;
     size_t epoch, observation;
     
     error = linearAlgebra_vector(my_perceptron->epochs);
     
     for(epoch = 0; epoch<my_perceptron->epochs; epoch++){
-        result = perceptron_motor_predict(my_perceptron->params, my_perceptron->batch_size, my_perceptron->n_params, my_perceptron->data, max, &my_results);
-        error[epoch] = general_RMS(result, my_results->predict_location, my_perceptron->targets, my_perceptron->batch_size);
+        result = perceptron_motor_predict(my_perceptron->params, my_perceptron->batch_size, my_perceptron->n_params, my_perceptron->data, max);
+        error[epoch] = general_RMS(result, my_perceptron->targets, my_perceptron->batch_size);
         for(observation = 0; observation<my_perceptron->batch_size; observation++) perceptron_motor_hebbian(my_perceptron->n_params, my_perceptron->params, my_perceptron->data, error[epoch], my_perceptron->learning_rate, max);
     }
 

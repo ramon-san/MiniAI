@@ -31,19 +31,9 @@ typedef struct matrix_browser{
     float *matrix;
 }floatMatrix;
 
-typedef struct randomLocations_browser{
-    float *result;
-    size_t *predict_location;
-}randomLocations;
-
-typedef struct passResult_browser{
-    float result;
-    size_t predict_location;
-}passResult;
-
 /* Function prototypes. */
 
-float general_RMS(float *predict, size_t *predict_location, float *target, size_t n_values);
+float general_RMS(float *predict, float *target, size_t n_values);
 /*
  *
  * The function RMS does the root mean square of the values of the array that we entered. This function was also done by Cesarín.

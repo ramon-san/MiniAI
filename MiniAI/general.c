@@ -26,14 +26,12 @@
         sqrt(result) (float):
             This variable is the square root of all the result sumation.
 */
-float general_RMS(float *predict, size_t *predict_location, float *target, size_t n_values){
+float general_RMS(float *predict, float *target, size_t n_values){
     float result = 0;
     size_t i;
     
     for(i=0; i<n_values; i++){
-        result += powf((predict[i]-target[predict_location[i]]), 2);
-        printf("\nPredict in RMS %zu: %zu", i, predict_location[i]);
-        
+        result += powf((predict[i]-target[i]), 2);
     }
     
     return sqrt(result);
