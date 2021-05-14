@@ -24,13 +24,13 @@
 */
 floatMatrix dataShell_motor_readCSV(FILE *fp){
     floatMatrix browser;
-    char line[200], *temp;
+    char line[300], *temp;
     int xTemp;
 
     browser.matrix = malloc(sizeof(float)*BUFSIZ);
     browser.used = 0;
     browser.y = 0;
-    while(fgets(line, 200, fp) != NULL){
+    while(fgets(line, 300, fp) != NULL){
         if(browser.used >= sizeof(float)*BUFSIZ) browser.matrix = realloc(browser.matrix, browser.used+BUFSIZ/2);
         xTemp=0;
         temp = strtok(line, ",");

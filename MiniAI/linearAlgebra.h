@@ -26,7 +26,7 @@ float *linearAlgebra_vector(size_t n_members);
             This variable is an array of size batch_size.
 */
 
-float linearAlgebra_dotProduct(float *vector1, float *vector2, size_t n_params);
+passResult linearAlgebra_dotProduct(float *vector1, float *vector2, size_t n_params, size_t entry, int max);
 /*
  *
  * The function dotProduct does the dot product operation between two arrays. And yet again, this function eas also copied from Cesarín's code.
@@ -42,6 +42,20 @@ float linearAlgebra_dotProduct(float *vector1, float *vector2, size_t n_params);
  * @returns
         result (float):
             This variable is the result of the current iteration.
+*/
+
+size_t *linearAlgebra_vector_size_t(size_t n_members);
+/*
+ *
+ * The function vector creates a size_t vector (array) of size batch_size.
+ *
+ * @params
+ *      n_members (size_t):
+            This is value of batch_size.
+
+ * @returns
+        vector (*size_t):
+            This variable is an array of size batch_size.
 */
 
 #endif /* linearAlgebra_h */

@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "perceptron_controller.h"
 
 /*
@@ -46,23 +47,8 @@ void perceptron_controller_setWeights(perceptron *my_perceptron){
     size_t n_params = my_perceptron->n_params, w;
     float *new_params = calloc(n_params, sizeof(float));
 
-    free(my_perceptron->params);
+    srand((unsigned int)time(NULL));
     my_perceptron->params = NULL;
     my_perceptron->params = new_params;
-    for(w = 0; w<n_params; w++) my_perceptron->params[w] = (float)rand()/(float)RAND_MAX;
-}
-
-/*
- *
- * The function relu sets our activation function.
- *
- * @params
- *      x (float):
-            This variable contains... This function was copied from Cesarín's code.
-
- * @returns
-        void
-*/
-float perceptron_controller_relu(float x){
-    return x>0?x:0; // If x>0 return x; 0 otherwise.
+    for(w = 0; w<n_params; w++) my_perceptron->params[w] = (float)rand()/RAND_MAX;
 }

@@ -13,11 +13,14 @@
 
 /* Function prototypes. */
 
-floatMatrix dataShell_view_menu(void);
+floatMatrix dataShell_view_menu(char *file);
 /*
  *
  * The function menu gives the user action posibilities.
  *
+ * @params
+        file (*char):
+            This variable contains the file's name.
 
  * @returns
         void

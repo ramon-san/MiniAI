@@ -33,7 +33,7 @@ void perceptron_view_generator(size_t n_params, perceptron *my_perceptron){
     my_perceptron->error = malloc(sizeof(float)*my_perceptron->batch_size);
     perceptron_controller_setLearningRate(&my_perceptron);
     perceptron_controller_setWeights(my_perceptron);
-    my_perceptron->activation = perceptron_controller_relu;
+    my_perceptron->activation = perceptron_motor_relu;
 }
 
 /*

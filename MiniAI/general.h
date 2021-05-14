@@ -31,9 +31,19 @@ typedef struct matrix_browser{
     float *matrix;
 }floatMatrix;
 
+typedef struct randomLocations_browser{
+    float *result;
+    size_t *predict_location;
+}randomLocations;
+
+typedef struct passResult_browser{
+    float result;
+    size_t predict_location;
+}passResult;
+
 /* Function prototypes. */
 
-float general_RMS(float *predict, float *target, size_t n_values);
+float general_RMS(float *predict, size_t *predict_location, float *target, size_t n_values);
 /*
  *
  * The function RMS does the root mean square of the values of the array that we entered. This function was also done by Cesarín.
@@ -49,6 +59,21 @@ float general_RMS(float *predict, float *target, size_t n_values);
  * @returns
         sqrt(result) (float):
             This variable is the square root of all the result sumation.
+*/
+
+void general_saveToPlot(float* values_y, size_t n_entries, char *file);
+/*
+ *
+ * The function printToFile writes info in a file as coordinates "x" and "y" for graphing.
+ *
+ * @params
+ *      values_y (*float):
+            This file contains the values of "y"..
+        n_entries (size_t):
+            This variable contains the total number of entries for the file.
+
+ * @returns
+        void
 */
 
 #endif /* general_h */

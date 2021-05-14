@@ -6,6 +6,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include "general.h"
 
@@ -25,11 +26,43 @@
         sqrt(result) (float):
             This variable is the square root of all the result sumation.
 */
-float general_RMS(float *predict, float *target, size_t n_values){
+float general_RMS(float *predict, size_t *predict_location, float *target, size_t n_values){
     float result = 0;
     size_t i;
     
-    for(i=0; i<n_values; i++) result += powf((predict[i]-target[i]), 2);
+    for(i=0; i<n_values; i++){
+        result += powf((predict[i]-target[predict_location[i]]), 2);
+        printf("\nPredict in RMS %zu: %zu", i, predict_location[i]);
+        
+    }
     
     return sqrt(result);
+}
+
+/*
+ *
+ * The function printToFile writes info in a file as coordinates "x" and "y" for graphing.
+ *
+ * @params
+ *      values_y (*float):
+            This file contains the values of "y"..
+        n_entries (size_t):
+            This variable contains the total number of entries for the file.
+
+ * @returns
+        void
+*/
+void general_saveToPlot(float* values_y, size_t n_entries, char *file){
+    size_t x=0;
+    FILE *fp;
+    
+    fp = fopen(file, "w");
+    if(fp == NULL){
+       printf("\n\tArchivo no disponible.");
+       exit(1);
+    }
+    for(x=0; x<n_entries; x++){
+        fprintf(fp, "%zu\t%f\n", x, values_y[x]);
+    }
+    fclose(fp);
 }
